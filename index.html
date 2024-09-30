@@ -1,82 +1,126 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Calendario</title>
-</head>
-<body>
-    
-    <div class="container">
-        <div class="left">
-            <div class="calendar">
-                <div class="month">
-                    <i class="fa fa-angle-left prev"></i>
-                    <div class="date">Septiembre 2024</div>
-                    <i class="fa fa-angle-right next"></i>
-                </div>
-            <div class="weekdays">
-                <div>Dom</div>
-                <div>Lun</div>
-                <div>Mar</div>
-                <div>Mie</div>
-                <div>Jue</div>
-                <div>Vie</div>
-                <div>Sab</div>
-            </div>
-            <div class="days">
-                <!-- Los días serán agregador con JS.Guardo esto porque me costó tiempo escribirlo.
-                <div class="day prev-date">30</div>
-                <div class="day prev-date">31</div>
-                <div class="day">1</div>
-                <div class="day">2</div>
-                <div class="day">3</div>
-                <div class="day">4</div>
-                <div class="day">5</div>
-                <div class="day">6</div>
-                <div class="day">7</div>
-                <div class="day event">8</div>
-                <div class="day">9</div>
-                <div class="day">10</div>
-                <div class="day">11</div>
-                <div class="day">12</div>
-                <div class="day">13</div>
-                <div class="day event active">14</div>
-                <div class="day today">15</div>
-                <div class="day">16</div>
-                <div class="day">17</div>
-                <div class="day">18</div>
-                <div class="day">19</div>
-                <div class="day">20</div>
-                <div class="day event">21</div>
-                <div class="day">22</div>
-                <div class="day">23</div>
-                <div class="day">24</div>
-                <div class="day">25</div>
-                <div class="day">26</div>
-                <div class="day">27</div>
-                <div class="day">28</div>
-                <div class="day">29</div>
-                <div class="day">30</div>
-                <div class="day next-date">1</div>
-                <div class="day next-date">2</div>
-                <div class="day next-date">3</div>-->
-            </div>
-            <div class="goto-today">
-                <div class="goto">
-                    <input type="text" placeholder="mm/yyyy" class="date-input">
-                    <button class="goto-btn">Ir</button>
-                </div>
-                <button class="today-btn">Hoy</button>
-            </div>
-            </div>
-        </div>
-    </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="crossorigin="anonymous"referrerpolicy="no-referrer"/>
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+        <title>Agenda con Calendario</title>
+    </head>
+
+    <header>
+        
+    </header>
 
 
-    <script src="script.js"></script>
-</body>
+    <body>
+        <article class="container">
+            <div class="left">
+                <div class="calendar">
+                    <div class="month">
+                        <i class="fa fa-angle-left prev"></i>
+                        <div class="date">Septiembre 2024</div>
+                        <i class="fa fa-angle-right next"></i>
+                    </div>
+                    <div class="weekdays">
+                        <div>Dom</div>
+                        <div>Lun</div>
+                        <div>Mar</div>
+                        <div>Mie</div>
+                        <div>Jue</div>
+                        <div>Vie</div>
+                        <div>Sab</div>
+                    </div>
+                    <div class="days"></div>
+                    <div class="goto-today">
+                        <div class="goto">
+                            <input type="text" placeholder="mm/aaaa" class="date-input"/>
+                            <button class="goto-btn">Ir</button>
+                        </div>
+                        <button class="today-btn">Dia Actual</button>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="today-date">
+                    <div class="event-day">Mié</div>
+                    <div class="event-date">29 Septiembre 2024</div>
+                </div>
+                <div class="events"></div>
+                <div class="add-event-wrapper">
+                    <div class="add-event-header">
+                        <div class="title">Nuevo Evento</div>
+                        <i class="fas fa-times close"></i>
+                    </div>
+                    <article class="add-event-body">
+                        <div class="add-event-input">
+                            <input type="text" placeholder="Nombre del Evento" class="event-name"/>
+                        </div>
+                        <div class="add-event-input">
+                            <label>Desde</label>
+                            <input type="time" class="event-time-from"/>
+                        </div>
+                        <div class="add-event-input">
+                            <label>Hasta</label>
+                            <input type="time" class="event-time-to"/>
+                        </div>
+                    </article>
+                    <div class="add-event-footer">
+                        <button class="add-event-btn">Añadir Evento</button>
+                    </div>
+                </div>
+
+                <button class="add-event">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+
+
+            <div class="Below">
+                <article class="container-Events">
+                    <h3>Buscar Eventos</h3>
+                        <div class="add-event-input">
+                            <label for="search-name">Nombre del Evento</label>
+                            <input type="text" id="search-name" />
+                        </div>
+                        <div class="add-event-input">
+                            <label for="search-date">Fecha</label>
+                            <input type="date" id="search-date" />
+                        </div>
+                        <div class="add-event-input">
+                            <label for="search-start-time">Duración Evento Desde</label>
+                            <input type="time" id="search-start-time" />
+                        </div>
+                        <div class="add-event-input">
+                            <label for="search-end-time">Duración Evento Hasta</label>
+                            <input type="time" id="search-end-time" />
+                        </div>
+                        <button id="search-btn">Buscar</button>
+                        <div id="allEvents"></div>
+                    
+                </article>
+                
+                <div id="allEvents">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre Evento</th>
+                                <th>Fecha</th>
+                                <th>Desde-Hasta</th>
+                            </tr>
+                        </thead>
+                        <tbody id="events-table-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </article>
+
+
+
+        <script src="script.js"></script>
+    </body>
 </html>
